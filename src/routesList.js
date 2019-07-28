@@ -5,28 +5,13 @@ export default [
     view: 'New',
   },
   {
-    name: 'past',
-    path: '/past',
-    view: 'Past',
-  },
-  {
-    name: 'comments',
-    path: '/comments',
-    view: 'Comments',
-  },
-  {
     name: 'ask',
     path: '/ask',
-    view: 'Comments',
+    view: 'Ask',
   },
   {
     name: 'job',
     path: '/job',
     view: 'Job',
-  },
-  {
-    name: 'post',
-    path: '/post',
-    view: 'Post',
   },
 ];
