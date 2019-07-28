@@ -1,7 +1,6 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 import Routes from './routesList';
-import Home from './views/Home.vue';
 
 Vue.use(Router);
 const buildRoutes = () => Routes.map(e => ({
@@ -13,11 +12,10 @@ export default new Router({
   mode: 'history',
   base: process.env.BASE_URL,
   routes: [
+    ...buildRoutes(),
     {
       path: '/',
-      name: 'home',
-      component: Home,
+      redirect: 'new',
     },
-    ...buildRoutes(),
   ],
 });
