@@ -8,25 +8,22 @@
           <router-link class="nav-link" :to="link.path">{{link.name}}</router-link>
         </li>
       </ul>
-      <form class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" />
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-      </form>
     </div>
   </nav>
 </template>
 
 <script>
-import { value } from "vue-function-api";
-import Routes from "../routesList";
+import { value } from 'vue-function-api';
+import Routes from '../routesList';
+
 export default {
-  name: "Navbar",
+  name: 'Navbar',
   setup() {
     const links = value(Routes);
     return {
-      links
+      links,
     };
-  }
+  },
 };
 </script>
 

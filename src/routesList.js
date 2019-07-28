@@ -2,31 +2,31 @@ export default [
   {
     name: 'new',
     path: '/new',
-    view: 'New'
+    view: 'New',
   },
   {
     name: 'past',
     path: '/past',
-    view: 'Past'
+    view: 'Past',
   },
   {
     name: 'comments',
     path: '/comments',
-    view: 'Comments'
+    view: 'Comments',
   },
   {
     name: 'ask',
     path: '/ask',
-    view: 'Comments'
+    view: 'Comments',
   },
   {
     name: 'job',
     path: '/job',
-    view: 'Job'
+    view: 'Job',
   },
   {
     name: 'post',
     path: '/post',
-    view: 'Post'
-  }
+    view: 'Post',
+  },
 ];

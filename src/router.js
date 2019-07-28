@@ -4,14 +4,11 @@ import Routes from './routesList';
 import Home from './views/Home.vue';
 
 Vue.use(Router);
-const buildRoutes = () =>
-  Routes.map(e => {
-    return {
-      path: e.path,
-      name: e.route,
-      component: () => import(/* webpackChunkName: "about" */ `./views/${e.view}.vue`)
-    };
-  });
+const buildRoutes = () => Routes.map(e => ({
+  path: e.path,
+  name: e.route,
+  component: () => import(/* webpackChunkName: "about" */ `./views/${e.view}.vue`),
+}));
 export default new Router({
   mode: 'history',
   base: process.env.BASE_URL,
@@ -19,8 +16,8 @@ export default new Router({
     {
       path: '/',
       name: 'home',
-      component: Home
+      component: Home,
     },
-    ...buildRoutes()
-  ]
+    ...buildRoutes(),
+  ],
 });
