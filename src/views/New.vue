@@ -14,16 +14,17 @@
 </template>
 
 <script>
-import { value, onMounted } from 'vue-function-api';
-
+import { onCreated } from 'vue-function-api';
+import { useState, useActions } from '@u3u/vue-hooks'
 export default {
   name: 'New',
   setup() {
-    const newsList = value([]);
-    onMounted(async () => {
-      const results = await fetch('https://api.hackernews.io/news?page=1');
-      const news = await results.json();
-      newsList.value = news;
+    const { newsList } = useState(['newsList']);
+    const { setNewsList } = useActions(['setNewsList']);
+    onCreated(() => {
+      if (!setNewsList) {
+        setNewsList();
+      }
     });
     return {
       newsList,
