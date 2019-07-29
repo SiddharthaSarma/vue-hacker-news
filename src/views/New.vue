@@ -15,7 +15,8 @@
 
 <script>
 import { onCreated } from 'vue-function-api';
-import { useState, useActions } from '@u3u/vue-hooks'
+import { useState, useActions } from '@u3u/vue-hooks';
+
 export default {
   name: 'New',
   setup() {
