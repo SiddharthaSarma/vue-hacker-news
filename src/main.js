@@ -1,3 +1,4 @@
+import hooks from '@u3u/vue-hooks';
 import Vue from 'vue';
 import { plugin } from 'vue-function-api';
 import App from './App.vue';
@@ -6,6 +7,7 @@ import store from './store';
 
 Vue.config.productionTip = false;
 Vue.use(plugin);
+Vue.use(hooks);
 new Vue({
   router,
   store,
