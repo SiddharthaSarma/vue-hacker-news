@@ -8,15 +8,15 @@ export default new Vuex.Store({
     newsList: [],
   },
   mutations: {
-    addNewsItems(state, newsItems) {
-      state.newsList = newsItems;
+    addNewsItems(state, items) {
+      state.newsList = items;
     },
   },
   actions: {
-    async setNewsList({ commit }) {
-      const results = await fetch('https://api.hackernews.io/news?page=1');
+    async setNewsList({ commit }, { type, page = 1, mutation }) {
+      const results = await fetch(`https://api.hackernews.io/${type}?page=${page}`);
       const news = await results.json();
-      commit('addNewsItems', news);
+      commit(mutation, news);
     },
   },
 });

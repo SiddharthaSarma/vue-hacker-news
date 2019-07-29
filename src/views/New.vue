@@ -23,8 +23,12 @@ export default {
     const { newsList } = useState(['newsList']);
     const { setNewsList } = useActions(['setNewsList']);
     onCreated(() => {
-      if (!setNewsList) {
-        setNewsList();
+      if (!newsList.value.length) {
+        setNewsList({
+          type: 'news',
+          page: 1,
+          mutation: 'addNewsItems',
+        });
       }
     });
     return {
