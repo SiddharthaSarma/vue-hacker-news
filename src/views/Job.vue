@@ -3,7 +3,7 @@
     <ul class="list-group">
       <li
         class="list-group-item d-flex justify-content-between align-items-center"
-        v-for="list in newsList"
+        v-for="list in jobsList"
         :key="list.id"
       >
         <a :href="list.url" target="_blank">{{list.title}}</a>
@@ -14,19 +14,24 @@
 </template>
 
 <script>
-import { value, onMounted } from 'vue-function-api';
-
+import { onCreated } from 'vue-function-api';
+import { useActions, useState } from '@u3u/vue-hooks';
 export default {
   name: 'Job',
   setup() {
-    const newsList = value([]);
-    onMounted(async () => {
-      const results = await fetch('https://api.hackernews.io/jobs?page=1');
-      const news = await results.json();
-      newsList.value = news;
+    const { jobsList } = useState(['jobsList']);
+    const { setNewsList } = useActions(['setNewsList']);
+    onCreated(() => {
+      if (!jobsList.value.length) {
+        setNewsList({
+          type: 'jobs',
+          page: 1,
+          mutation: 'addJobItems',
+        });
+      }
     });
     return {
-      newsList,
+      jobsList,
     };
   },
 };

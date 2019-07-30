@@ -7,6 +7,7 @@ export default new Vuex.Store({
   state: {
     newsList: [],
     askList: [],
+    jobsList: [],
   },
   mutations: {
     addNewsItems(state, items) {
@@ -14,6 +15,9 @@ export default new Vuex.Store({
     },
     addAskItems(state, items) {
       state.askList = items;
+    },
+    addJobItems(state, items) {
+      state.jobsList = items;
     },
   },
   actions: {
