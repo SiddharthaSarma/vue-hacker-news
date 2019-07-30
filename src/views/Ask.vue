@@ -20,7 +20,7 @@ import { useState, useActions } from '@u3u/vue-hooks';
 export default {
   name: 'Ask',
   setup() {
-    const { askList:newsList } = useState(['askList']);
+    const { askList: newsList } = useState(['askList']);
     const { setNewsList } = useActions(['setNewsList']);
     onCreated(() => {
       if (!newsList.value.length) {
@@ -34,7 +34,6 @@ export default {
     return {
       newsList,
     };
-
   },
 };
 </script>

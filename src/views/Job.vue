@@ -16,6 +16,7 @@
 <script>
 import { onCreated } from 'vue-function-api';
 import { useActions, useState } from '@u3u/vue-hooks';
+
 export default {
   name: 'Job',
   setup() {
