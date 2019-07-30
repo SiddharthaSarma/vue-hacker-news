@@ -14,20 +14,27 @@
 </template>
 
 <script>
-import { value, onMounted } from 'vue-function-api';
+import { onCreated } from 'vue-function-api';
+import { useState, useActions } from '@u3u/vue-hooks';
 
 export default {
   name: 'Ask',
   setup() {
-    const newsList = value([]);
-    onMounted(async () => {
-      const results = await fetch('https://api.hackernews.io/ask?page=1');
-      const news = await results.json();
-      newsList.value = news;
+    const { askList:newsList } = useState(['askList']);
+    const { setNewsList } = useActions(['setNewsList']);
+    onCreated(() => {
+      if (!newsList.value.length) {
+        setNewsList({
+          type: 'ask',
+          page: 1,
+          mutation: 'addAskItems',
+        });
+      }
     });
     return {
       newsList,
     };
+
   },
 };
 </script>

@@ -6,10 +6,14 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state: {
     newsList: [],
+    askList: [],
   },
   mutations: {
     addNewsItems(state, items) {
       state.newsList = items;
+    },
+    addAskItems(state, items) {
+      state.askList = items;
     },
   },
   actions: {
