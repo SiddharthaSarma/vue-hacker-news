@@ -24,6 +24,7 @@ yarn run test
 ```
 yarn run lint
 ```
+### Left over things
+-[] Add pagination
+-[] Change to official api 
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
